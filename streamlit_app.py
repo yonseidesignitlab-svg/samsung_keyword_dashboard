@@ -15,49 +15,103 @@ st.set_page_config(
 # ----------------------------------------------------------------------
 # 2. 축 정의 (수정 완료된 버전)
 # ----------------------------------------------------------------------
-# 'key'는 '키워드 점수 표.xlsx'의 컬럼명과 정확히 일치해야 합니다.
+# 'key'는 'keyword_score.xlsx'의 컬럼명과 정확히 일치해야 합니다.
 AXIS_DEFINITIONS = {
     "개인 경험 vs 집단 경험": {
         "key": "개인 경험 vs 집단 경험",
         "name": "개인 경험 vs 집단 경험",
-        "min_label": "집단 경험 (Collective)", # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "개인 경험 (Personal)"     # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "개인 경험 (Personal)",     # [수정]
+        "max_label": "집단 경험 (Collective)"  # [수정]
     },
     "대중화 vs 프리미엄화": {
         "key": "대중화 vs 프리미엄화",
         "name": "대중화 vs 프리미엄화",
-        "min_label": "프리미엄화 (Premium)", # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "대중화 (Mass)"        # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "대중화 (Mass)",       # [수정]
+        "max_label": "프리미엄화 (Premium)" # [수정]
     },
     "단기 수익 vs 장기 지속 가능성": {
         "key": "단기 수익 vs 장기 지속 가능성",
         "name": "단기 수익 vs 장기 지속 가능성",
-        "min_label": "장기 지속 (Long-term)",  # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "단기 수익 (Short-term)" # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "단기 수익 (Short-term)",      # [수정]
+        "max_label": "장기 지속 가능성 (Long-term)" # [수정]
     },
     "자동화 vs 인간 개입": {
         "key": "자동화 vs 인간 개입",
         "name": "자동화 vs 인간 개입",
-        "min_label": "인간 개입 (Human)",    # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "자동화 (Automation)"  # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "자동화 (Automation)",  # [수정]
+        "max_label": "인간 개입 (Human)"      # [수정]
     },
     "자연 친화 vs 인공/도시 중심": {
         "key": "자연 친화 vs 인공/도시 중심",
         "name": "자연 친화 vs 인공/도시 중심",
-        "min_label": "인공/도시 (Urban)",  # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "자연 친화 (Nature)"   # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "자연 친화 (Nature)",         # [수정]
+        "max_label": "인공/도시 중심 (Artificial)" # [수정]
     },
     "프라이버시/보안 vs 개방/공유": {
         "key": "프라이버시/보안 vs 개방/공유",
         "name": "프라이버시/보안 vs 개방/공유",
-        "min_label": "개방/공유 (Sharing)",  # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "프라이버시 (Privacy)" # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "프라이버시/보안 (Privacy)", # [수정]
+        "max_label": "개방/공유 (Openness)"   # [수정]
     },
     "기능 중심 vs 감성 중심": {
         "key": "기능 중심 vs 감성 중심",
         "name": "기능 중심 vs 감성 중심",
-        "min_label": "감성 중심 (Emotional)",  # 수정됨: 점수 기준에 따라 의미 반전
-        "max_label": "기능 중심 (Functional)" # 수정됨: 점수 기준에 따라 의미 반전
+        "min_label": "기능 중심 (Function)", # [수정]
+        "max_label": "감성 중심 (Emotion)"  # [수정]
+    },
+    "낮은 인지도 vs 높은 인지도": {
+        "key": "낮은 인지도 vs 높은 인지도",
+        "name": "낮은 인지도 vs 높은 인지도",
+        "min_label": "낮은 인지도",
+        "max_label": "높은 인지도"
+    },
+    "낮은 미래적 기대 vs 높은 미래적 기대": {
+        "key": "낮은 미래적 기대 vs 높은 미래적 기대",
+        "name": "낮은 미래적 기대 vs 높은 미래적 기대",
+        "min_label": "낮은 미래적 기대",
+        "max_label": "높은 미래적 기대"
+    },
+    "낮은 도입율 vs 높은 도입율": {
+        "key": "낮은 도입율 vs 높은 도입율",
+        "name": "낮은 도입율 vs 높은 도입율",
+        "min_label": "낮은 도입율",
+        "max_label": "높은 도입율"
+    },
+    "소극적 도입 의지 vs 적극적 도입 의지": {
+        "key": "소극적 도입 의지 vs 적극적 도입 의지",
+        "name": "소극적 도입 의지 vs 적극적 도입 의지",
+        "min_label": "소극적 도입 의지",
+        "max_label": "적극적 도입 의지"
+    },
+    "입주민 불만족 vs 입주민 고만족": {
+        "key": "입주민 불만족 vs 입주민 고만족",
+        "name": "입주민 불만족 vs 입주민 고만족",
+        "min_label": "입주민 불만족",
+        "max_label": "입주민 고만족"
+    },
+    "낮은 구현 가능성 vs 높은 구현 가능성": {
+        "key": "낮은 구현 가능성 vs 높은 구현 가능성",
+        "name": "낮은 구현 가능성 vs 높은 구현 가능성",
+        "min_label": "낮은 구현 가능성",
+        "max_label": "높은 구현 가능성"
+    },
+    "초기투자 고비용 vs 초기투자 저비용": {
+        "key": "초기투자 고비용 vs 초기투자 저비용",
+        "name": "초기투자 고비용 vs 초기투자 저비용",
+        "min_label": "초기투자 고비용",
+        "max_label": "초기투자 저비용"
+    },
+    "점진적 개선 vs 파괴적 혁신": {
+        "key": "점진적 개선 vs 파괴적 혁신",
+        "name": "점진적 개선 vs 파괴적 혁신",
+        "min_label": "점진적 개선",
+        "max_label": "파괴적 혁신"
+    },
+    "제한적 확장 가능성(사업성) vs 높은 확장 가능성(사업성)": {
+        "key": "제한적 확장 가능성(사업성) vs 높은 확장 가능성(사업성)",
+        "name": "제한적 확장 가능성(사업성) vs 높은 확장 가능성(사업성)",
+        "min_label": "제한적 확장 가능성(사업성)",
+        "max_label": "높은 확장 가능성(사업성)"
     }
 }
 
@@ -66,9 +120,9 @@ AXIS_DEFINITIONS = {
 # 3. 데이터 로딩 (Excel 파일) - 점수/근거 파싱
 # ----------------------------------------------------------------------
 # [수정] 엑셀 파일과 시트 이름을 사용하도록 복원
-EXCEL_FILE_NAME = "키워드 점수 표.xlsx"
-SHEET_NAME = "키워드_중복제거"
-SCENARIO_SHEET_NAME = "아이디어"
+EXCEL_FILE_NAME = "keyword_score.xlsx"
+SHEET_NAME = "Keyword_score"
+SCENARIO_SHEET_NAME = "Idea"
 
 # [수정] 정규식 패턴: '+' 부호를 인식하도록 [+-]?로 변경
 SCORE_RATIONALE_PATTERN = re.compile(r"^\s*([+-]?\d+\.?\d*)\s*\((.*)\)\s*$")
@@ -304,7 +358,7 @@ def display_visualizations(df, x_axis, y_axis, show_text, color_map): # [수정]
                 tickvals=tick_values, # [수정] 25 단위 눈금
                 ticktext=tick_text  # [수정] 25 단위 텍스트
             ),
-            height=1200, # [수정] 차트 크기 800 -> 1200
+            height=1000, 
             margin=dict(l=150, r=150, t=100, b=100),
             dragmode='pan',
             hoverlabel=dict(font_size=16), # [신규] 툴팁 글씨 크기 16
